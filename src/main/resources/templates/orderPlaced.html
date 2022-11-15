@@ -5,7 +5,7 @@
 <body>
 
 <section class="headernavBar1">
-    <div class="container">
+    <div class ="container">
         <nav class="navbar navbar-expand navbar-light topbar mb-4 static-top" >
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
@@ -30,18 +30,17 @@
                         <li class="nav-item active">
                             <a class="nav-link" sec:authorize="isAuthenticated()" th:href="@{/logout}" href="#">logout</a>
                         </li>
-                        <li class="nav-item active">
-                            <a class="nav-link" th:href="@{/cart}" href="#">cart</a>
+                        <li class="nav-item active" >
+                            <a href="#" th:href="@{/cart}" class="header__cart-icon fas fa-shopping-cart"></a>
+                            <span class="header__cart-notice">3</span>
                         </li>
-                        <!--                <li class="nav-item active">-->
-                        <!--                    <span class="nav-link" th:text="${cartCount}">0</span>-->
-                        <!--                </li>-->
-                    </ul>
 
+                    </ul>
                 </div>
             </div>
         </nav>
     </div>
+
 </section>
 
 <div class="container">
