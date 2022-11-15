@@ -31,7 +31,7 @@
                         </li>
                         <li class="nav-item active" >
                             <a href="#" th:href="@{/cart}" class="header__cart-icon fas fa-shopping-cart"></a>
-                            <span class="header__cart-notice">3</span>
+                            <span  th:each="category, iStat : ${categories}" class="header__cart-notice" th:text="${category.id}"></span>
                         </li>
 
                     </ul>
