@@ -7,7 +7,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-
+// UserDetails in injection security package
 public class CustomerUserDetail extends User implements UserDetails {
     public CustomerUserDetail(User user){
         super(user);

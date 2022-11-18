@@ -72,7 +72,7 @@ public class AdminController {
     }
     @PostMapping("/admin/products/add")
     public String postProductAdd(@ModelAttribute("productDTO") ProductDTO productDTO,
-                                 @RequestParam("productImage")MultipartFile file,
+                                 @RequestParam("productImage") MultipartFile file,
                                  @RequestParam("imgName")String imgName) throws IOException {
         Product product = new Product();
         product.setId(productDTO.getId());

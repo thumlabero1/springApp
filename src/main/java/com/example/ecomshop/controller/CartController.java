@@ -16,7 +16,7 @@ public class CartController {
     @GetMapping("/addToCart/{id}")
     public String addToCart(@PathVariable int id){
         GlobalData.cart.add(productService.getProductById(id).get());
-        return "redirect:/shop";
+        return "redirect:/cart";
     }
     @GetMapping("/cart")
     public String cartGet(Model model){
@@ -25,11 +25,11 @@ public class CartController {
         model.addAttribute("cart", GlobalData.cart);
         return "cart";
     }
-    @GetMapping("/cart/removeItem/{id}")
+    @GetMapping("/cart/removeItem/{index}")
     public String cartItemRemove(@PathVariable int index){
         GlobalData.cart.remove(index);
         return "redirect:/cart";
-    }
+    }   
     @GetMapping("/checkout")
     public String checkout (Model model){
         model.addAttribute("total", GlobalData.cart.stream().mapToDouble(Product::getPrice).sum());

@@ -45,7 +45,7 @@ public class GoogleOAuth2SuccessHandler implements AuthenticationSuccessHandler 
             List<Role> roles = new ArrayList<>();
             roles.add(roleRepository.findById(2).get());
             user.setRoles(roles);
-            userRepository.save(user);
+            userRepository.save(user); 
         }
         redirectStrategy.sendRedirect(request, response, "/");
     }
