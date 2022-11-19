@@ -8,6 +8,7 @@ import com.example.ecomshop.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,12 +27,14 @@ public class LoginController {
     @Autowired
     RoleRepository roleRepository;
     @GetMapping("/login")
-    public String login(){
+    public String login(Model model){
+        model.addAttribute("cartCount", GlobalData.cart.size());
         GlobalData.cart.clear();
         return "login";
     }
     @GetMapping("/register")
-    public String registerGet(){
+    public String registerGet(Model model){
+        model.addAttribute("cartCount", GlobalData.cart.size());
         return "register";
     }
     @PostMapping("/register")
