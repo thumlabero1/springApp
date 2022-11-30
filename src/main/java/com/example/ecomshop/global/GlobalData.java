@@ -10,4 +10,11 @@ public class GlobalData {
     static {
         cart = new ArrayList<Product>();
     }
+    public List<Product> getCart(){
+        return cart;
+    }
+    public void setCart(List<Product> cart){
+        GlobalData.cart = cart;
+    }
 }
+
