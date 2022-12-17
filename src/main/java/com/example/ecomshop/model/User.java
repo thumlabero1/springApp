@@ -51,16 +51,18 @@ public class User {
 	public void setRoles(List<Role> roles) {
 		this.roles = roles;
 	}
-	@NotEmpty
+	@NotEmpty(message = "First Name is required")
     @Column(nullable = false)
     private String firstName;
+	@NotEmpty(message = "Last Name is required")
+	@Column(nullable = false)
     private String lastName;
 
     @Column(nullable = false, unique = true)
     @NotEmpty
-    @Email(message =  "{errors.invalid_email}")
+    @Email(message =  "Email invalid")
     private String email;
-
+	@NotEmpty(message = "Password is required")
     private String password;
 
     @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
