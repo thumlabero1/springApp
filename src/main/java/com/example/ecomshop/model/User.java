@@ -15,16 +15,54 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    @NotEmpty
+    public Integer getId() {
+		return id;
+	}
+	public void setId(Integer id) {
+		this.id = id;
+	}
+	public String getFirstName() {
+		return firstName;
+	}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	public String getLastName() {
+		return lastName;
+	}
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public List<Role> getRoles() {
+		return roles;
+	}
+	public void setRoles(List<Role> roles) {
+		this.roles = roles;
+	}
+	@NotEmpty(message = "First Name is required")
     @Column(nullable = false)
     private String firstName;
+	@NotEmpty(message = "Last Name is required")
+	@Column(nullable = false)
     private String lastName;
 
     @Column(nullable = false, unique = true)
     @NotEmpty
-    @Email(message =  "{errors.invalid_email}")
+    @Email(message =  "Email invalid")
     private String email;
-
+	@NotEmpty(message = "Password is required")
     private String password;
 
     @ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
